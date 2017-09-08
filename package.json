@@ -1,0 +1,42 @@
+{
+  "name": "roler",
+  "version": "0.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amovah/roler.git"
+  },
+  "keywords": [
+    "roles",
+    "manager",
+    "nodejs",
+    "js",
+    "javascript"
+  ],
+  "author": "Ali Movahedi <ali_movahedi@aol.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amovah/roler/issues"
+  },
+  "homepage": "https://github.com/amovah/roler#readme",
+  "files": [
+    "build"
+  ],
+  "directories": {
+    "lib": "src"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^3.19.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-rimraf": "^0.2.1"
+  }
+}
