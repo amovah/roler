@@ -31,12 +31,16 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-env": "^1.6.0",
+    "babelify": "^7.3.0",
     "eslint": "^3.19.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-browserify": "^0.5.1",
     "gulp-eslint": "^3.0.1",
-    "gulp-rimraf": "^0.2.1"
+    "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.2.1",
+    "gulp-uglify": "^3.0.0"
   }
 }
