@@ -36,7 +36,13 @@ We love pull requests. Here’s a quick guide:
 
   Note: For having better commit messages, you should [read this](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit).
 
-5. If everything looks good, push your changes:
+5. Run Test:
+
+  ```bash
+  gulp test
+  ```
+
+6. If everything looks good, push your changes:
 
   ```bash
   git push origin master

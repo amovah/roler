@@ -1,3 +1,13 @@
+function remove(array, item) {
+  let index = array.indexOf(item);
+  
+  if (index === -1) {
+    return array;
+  }
+
+  return [...array.slice(0, index), ...array.slice(index + 1)];
+}
+
 class Role {
   constructor() {
     this.perms = {};
@@ -8,6 +18,44 @@ class Role {
       this.perms[resource] = perm;
     } else if (typeof perm === 'string') {
       this.perms[resource] = [perm];
+    }
+
+    return this;
+  }
+
+  isAllowed(resource, perm) {
+    let perms = this.perms[resource];
+
+    if (typeof perm === 'string') {
+      perm = [perm];
+    }
+
+    return perm.every(item => perms.includes(item));
+  }
+
+  whatCanDo() {
+    return this.perms;
+  }
+
+  removeResource(resources) {
+    if (typeof resources === 'string') {
+      resources = [resources];
+    }
+
+    for (let resource of resources) {
+      delete this.perms[resource];
+    }
+
+    return this;
+  }
+
+  removePermission(resource, permissions) {
+    if (typeof permissions === 'string') {
+      permissions = [permissions];
+    }
+
+    for (let permission of permissions) {
+      this.perms[resource] = remove(this.perms[resource], permission);
     }
 
     return this;
@@ -25,17 +73,17 @@ export default class {
     return this.roles[name];
   }
 
-  remove(name) {
-    this.roles[name] = null;
-  }
-
-  isAllowed(name, resource, perm) {
-    let perms = this.roles[name].perms[resource];
-
-    if (typeof perm === 'string') {
-      perm = [perm];
+  remove(names) {
+    if (typeof names === 'string') {
+      names = [names];
     }
 
-    return perm.every(item => perms.includes(item));
+    for (let name of names) {
+      delete this.roles[name];
+    }
+  }
+
+  get(name) {
+    return this.roles[name];
   }
 }

@@ -5,6 +5,7 @@ var rm = require('gulp-rimraf');
 var browserify = require('gulp-browserify');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
+var mocha = require('gulp-mocha');
 
 gulp.task('clean', function() {
   return gulp.src('build', { read: false })
@@ -32,6 +33,11 @@ gulp.task('browserify', ['babel'], function() {
         .pipe(uglify())
         .pipe(rename('roler.js'))
         .pipe(gulp.dest('build'));
+});
+
+gulp.task('test', function() {
+  return gulp.src('test/index.js', { read: false })
+        .pipe(mocha({ reporter: 'nyan' }));
 });
 
 gulp.task('prod', ['lint', 'babel', 'browserify']);
