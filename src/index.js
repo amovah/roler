@@ -29,6 +29,10 @@ class Role {
     if (typeof perm === 'string') {
       perm = [perm];
     }
+    
+    if (typeof perms === 'undefined') {
+     return false;
+    }
 
     return perm.every(item => perms.includes(item));
   }
